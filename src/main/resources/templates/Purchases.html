@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>Search Purchases</h1>
+
+<form action="#" data-th-action="@{/PurchaseByCategory}" data-th-object="${categories}" method="post">
+	<select id="category" name="category"> 
+	<option value="">Select Category</option>
+	<option th:each="category : ${categories}" th:value="${category}" th:text="${category}"></option>
+	</select>
+    <button type="submit" name="action" value="searchByCategory">Search Purchases by Category</button>
+</form>
+
+<form action="#" data-th-action="@{/PurchaseByDate}" data-th-object="${timestamp}" method="post">
+	<select id="timestamp" name="timestamp"> 
+	<option value="">Select Date</option>
+	<option th:each="ts : ${timestamp}" th:value="${ts}" th:text="${ts}"></option>
+	</select>
+    <button type="submit" name="action" value="timestamp">Search Purchases by Date</button>
+</form>
+
+</body>
+</html>

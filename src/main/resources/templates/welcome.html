@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Welcome to Sporty Shoes</h1>
+<h2>Successfully logged in <span th:text="${user.name}"></span></h2>
+<h2>Change Password</h2>
+<form action="#" th:action="@{/changePW}" th:object="${user}" method="post">
+   <p>Name: <input type="text" th:field="*{name}" /></p>
+   <p>Passwort: <input type="text" th:field="*{password}" /></p>
+   <p><input type="submit" th:name="action" value="Submit" /></p>
+</form>
+
+<div style="color: red" th:if="${message != null}" th:text="${message}"></div>
+
+<h2>List Users</h2>
+<form action="#" th:action="@{/listUsers}" method="post">
+   <p><input type="submit" th:name="action" value="List Users" /></p>
+</form>
+
+<h2>Search User</h2>
+<form action="#" th:action="@{/searchUser}" th:object="${user}" method="post">
+	<p>Name: <input type="text" th:field="*{searchName}" /></p>
+   <p><input type="submit" th:name="action" value="Search User" /></p>
+</form>
+
+<a th:href="@{manageProducts}">Manage Products</a></br>
+<a th:href="@{Purchase}">Purchases</a>
+
+</body>
+</html>

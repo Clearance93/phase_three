@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h2>Add Product</h2>
+<form action="#" th:action="@{/addProduct}" th:object="${product}" method="post">
+   <p>Name: <input type="text" th:field="*{name}" /></p>
+   <p>Category: <input type="text" th:field="*{category}" /></p>
+   <p><input type="submit" th:name="action" value="Add Product" /></p>
+</form>
+
+<div style="color: red" th:if="${message != null}" th:text="${message}"></div>
+
+<h2>Delete Product</h2>
+<form action="#" th:action="@{/delProduct}" th:object="${product}" method="post">
+   <p>Name: <input type="text" th:field="*{name}" /></p>
+   <p>Category: <input type="text" th:field="*{category}" /></p>
+   <p><input type="submit" th:name="action" value="Delete Product" /></p>
+</form>
+
+<div style="color: red" th:if="${message2 != null}" th:text="${message2}"></div>
+
+<a th:href="@{manageProducts}">List Products</a>
+<table>
+	<tr>
+    	<th>Product</th>
+    	<th>Category</th>
+  </tr>
+	<tr th:each="product :${products}">
+		<td><span th:text="${product.name}"></span></td>
+		<td><span th:text="${product.category}"></span></td>
+	</tr>
+
+</table>
+</body>
+</html>

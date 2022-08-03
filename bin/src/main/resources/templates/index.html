@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+
+<h2>Admin Login</h2>
+<form action="#" th:action="@{/login}" th:object="${user}" method="post">
+   <p>Name: <input type="text" th:field="*{name}" /></p>
+   <p>Passwort: <input type="text" th:field="*{password}" /></p>
+   <p><input type="submit" th:name="action" value="Submit" /></p>
+</form>
+<div style="color: red" th:if="${error != null}" th:text="${error}"></div>
+
+</body>
+</html>
